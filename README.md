@@ -37,19 +37,19 @@ A robust and scalable time series forecasting framework that fuses multiple stat
  - Best for: Strong seasonal patterns with complex underlying dynamics
    
 3. ARIMA + XGBoost Hybrid
-   - ARIMA captures linear trends and seasonality
-   - XGBoost models the residuals for non-linear patterns
-   - Automatic ARIMA parameter optimization
+ - ARIMA captures linear trends and seasonality
+ - XGBoost models the residuals for non-linear patterns
+ - Automatic ARIMA parameter optimization
    
 4. TFT + ARIMA Hybrid
-   - TFT captures complex non-linear patterns
-   - ARIMA models the TFT residuals
-   - Combined predictions for enhanced accuracy
+ - TFT captures complex non-linear patterns
+ - ARIMA models the TFT residuals
+ - Combined predictions for enhanced accuracy
 
 5. Temporal Fusion Transformer (TFT)
-   - Custom implementation with multi-head attention
-   - Positional encoding for temporal patterns
-   - Hyperparameter optimization using Optuna
+ - Custom implementation with multi-head attention
+ - Positional encoding for temporal patterns
+ - Hyperparameter optimization using Optuna
    
 ✍️ Author
 
