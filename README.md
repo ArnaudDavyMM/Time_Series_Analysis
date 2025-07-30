@@ -1,4 +1,4 @@
-📈 Time Series Forecasting for Retail Sales
+📈 Time Series Forecasting for Retail Sales : Rossmann Store Sales dataset
 
 The main goal of this project is to perform Time Series Analysis and forecast sales using various Machine Learning algorithms.
 
@@ -6,11 +6,11 @@ I divide the project into two (2) Parts. The first part is focused on Data Analy
 I decided to do that separately due to computationanl power I have with google coloab in order to not exceed the GPU limit.
 
 in sum, there will be 3 sub-project as follow:
-1. Store Sales TimeSeries EDA
-2. Store Sales TimeSeries Analys & Forecast using Statmodels (ARIMA, SARIMA)
-3. Store Sales TimeSeries Analys & Forecast with Facebook Prophet
-4. Store Sales TimeSeries Analys & Forecast with Ensemble algorithms
-5. Store Sales TimeSeries Analys & Forecast with Deep Learning (Neural Network including LSTM)
+   1. Store Sales TimeSeries EDA
+   2. Store Sales TimeSeries Analys & Forecast using Statmodels (ARIMA, SARIMA)
+   3. Store Sales TimeSeries Analys & Forecast with Facebook Prophet
+   4. Store Sales TimeSeries Analys & Forecast with Ensemble algorithms
+   5. Store Sales TimeSeries Analys & Forecast with Deep Learning (Neural Network including LSTM)
 
 🚀 HYBRID TIME SERIES ANALYSIS & FORECASTING for Retail Sales / MODERN TIME SERIES FORECASTING ALGORITHMS (UPDATING)
 
@@ -19,36 +19,52 @@ A robust and scalable time series forecasting framework that fuses multiple stat
 🎯 Hybrid Models
 
 1. Prophet + LightGBM Hybrid
-   . Architecture: Facebook Prophet for seasonality + LightGBM for feature-based boosting
-   . Process:
-     . Prophet models trend, seasonality, and holiday effects
-     . LightGBM captures complex feature interactions and nonlinearities
-     . Forecast output from Prophet used as feature input to LightGBM
-     . Hybrid prediction blends statistical and machine learning insights
- . Best for: Seasonal time series with structured data and external regressors
+   - Architecture: Facebook Prophet for seasonality + LightGBM for feature-based boosting
+   - Process:
+        - Prophet models trend, seasonality, and holiday effects
+        - LightGBM captures complex feature interactions and nonlinearities
+        - Forecast output from Prophet used as feature input to LightGBM
+        - Hybrid prediction blends statistical and machine learning insights
+ - Best for: Seasonal time series with structured data and external regressors
 
 2. Prophet + LSTM Hybrid
-   . Architecture: Facebook Prophet for seasonality + LSTM for complex residuals
-   . Process :
-     . Prophet handles seasonality, trends and holidays
-     . LSTM models residual patterns
-     . Handles multiple seasonalities effectively
-     . Hybrid prediction combines both approaches
-   . Best for: Strong seasonal patterns with complex underlying dynamics
+   - Architecture: Facebook Prophet for seasonality + LSTM for complex residuals
+   - Process :
+        - Prophet handles seasonality, trends and holidays
+        - LSTM models residual patterns
+        - Handles multiple seasonalities effectively
+        - Hybrid prediction combines both approaches
+   - Best for: Strong seasonal patterns with complex underlying dynamics
    
 3. ARIMA + XGBoost Hybrid
-   . ARIMA captures linear trends and seasonality
-   . XGBoost models the residuals for non-linear patterns
-   . Automatic ARIMA parameter optimization
+   - ARIMA captures linear trends and seasonality
+   - XGBoost models the residuals for non-linear patterns
+   - Automatic ARIMA parameter optimization
    
 4. TFT + ARIMA Hybrid
-   . TFT captures complex non-linear patterns
-   . ARIMA models the TFT residuals
-   . Combined predictions for enhanced accuracy
+   - TFT captures complex non-linear patterns
+   - ARIMA models the TFT residuals
+   - Combined predictions for enhanced accuracy
 
 5. Temporal Fusion Transformer (TFT)
-   . Custom implementation with multi-head attention
-   . Positional encoding for temporal patterns
-   . Hyperparameter optimization using Optuna
+   - Custom implementation with multi-head attention
+   - Positional encoding for temporal patterns
+   - Hyperparameter optimization using Optuna
+   
+✍️ Author
 
+Arnaud Davy M.M 📬  Connect on Linkedln 🛠️ Open to collaboration, feedback, and future forecasting ideas!
 
+[Arnaud Davy M.M](https://www.linkedin.com/in/arnauddavy-mm) Connect: Linkedln Feel free to reach out if you're experimenting or improving this pipeline! — just leave a star if you find it helpful!
+
+📝 License
+
+This repository is licensed under the MIT License Feel free to fork, renix, extend, contribute and share with attribution!
+
+🙏 Acknowledgments
+
+Special thanks to:
+    - PyTorch Forecasting and PyTorch Lightning teams
+    - Anaconda teams
+    - Contributors to TensorFlow, Darts, and tsfresh
+    - The open-source time series and machine learning communities
