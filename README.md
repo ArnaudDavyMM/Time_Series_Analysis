@@ -19,8 +19,8 @@ A robust and scalable time series forecasting framework that fuses multiple stat
 🎯 Hybrid Models
 
 1. Prophet + LightGBM Hybrid
-   - Architecture: Facebook Prophet for seasonality + LightGBM for feature-based boosting
-   - Process:
+  - Architecture: Facebook Prophet for seasonality + LightGBM for feature-based boosting
+  - Process:
         - Prophet models trend, seasonality, and holiday effects
         - LightGBM captures complex feature interactions and nonlinearities
         - Forecast output from Prophet used as feature input to LightGBM
@@ -28,13 +28,13 @@ A robust and scalable time series forecasting framework that fuses multiple stat
  - Best for: Seasonal time series with structured data and external regressors
 
 2. Prophet + LSTM Hybrid
-   - Architecture: Facebook Prophet for seasonality + LSTM for complex residuals
-   - Process :
-        - Prophet handles seasonality, trends and holidays
-        - LSTM models residual patterns
-        - Handles multiple seasonalities effectively
-        - Hybrid prediction combines both approaches
-   - Best for: Strong seasonal patterns with complex underlying dynamics
+  - Architecture: Facebook Prophet for seasonality + LSTM for complex residuals
+  - Process :
+    - Prophet handles seasonality, trends and holidays
+    - LSTM models residual patterns
+    - Handles multiple seasonalities effectively
+    - Hybrid prediction combines both approaches
+ - Best for: Strong seasonal patterns with complex underlying dynamics
    
 3. ARIMA + XGBoost Hybrid
    - ARIMA captures linear trends and seasonality
