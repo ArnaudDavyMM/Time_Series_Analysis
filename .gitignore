@@ -214,6 +214,10 @@ outputs/
 .jupyter/lab/
 .jupyter/lab/workspaces/
 
+# Jupyter config and runtime files
+notebooks/etc/
+notebooks/share/
+
 # ============================================================================
 # EXPERIMENT TRACKING & MLOPS
 # ============================================================================
