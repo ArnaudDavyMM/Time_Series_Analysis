@@ -1,0 +1,33 @@
+{
+    // Top Bar
+    // @jupyterlab/application-extension:top-bar
+    // Top Bar settings.
+    // *****************************************
+
+    // Top bar items
+    // Note: To disable a item,
+    // copy it to User Preferences and add the
+    // "disabled" key. The following example will disable the user menu:
+    // {
+    //   "toolbar": [
+    //     {
+    //       "name": "user-menu",
+    //       "disabled": true
+    //     }
+    //   ]
+    // }
+    // 
+    // Top bar description:
+    "toolbar": [
+        {
+            "name": "spacer",
+            "type": "spacer",
+            "rank": 50
+        },
+        {
+            "name": "workspaceIndicator",
+            "rank": 1000,
+            "disabled": false
+        }
+    ]
+}

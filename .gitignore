@@ -1,0 +1,492 @@
+# ============================================================================
+# .gitignore for Hybrid Time Series Forecasting Project
+# Project: Comprehensive Time Series Forecasting Solution
+# Description: Ignore patterns for data science, ML, and time series projects
+# Last Updated: 07-29-2025
+# ============================================================================
+
+# ============================================================================
+# PYTHON SPECIFIC
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ============================================================================
+# DATA SCIENCE & MACHINE LEARNING SPECIFIC
+# ============================================================================
+
+# Data files
+*.csv
+*.json
+*.jsonl
+*.parquet
+*.pickle
+*.pkl
+*.h5
+*.hdf5
+*.xlsx
+*.xls
+*.tsv
+*.txt
+*.dat
+*.data
+
+# Large datasets (keep small sample data)
+data/raw/
+data/processed/
+data/external/
+data/interim/
+!data/sample/
+!data/README.md
+
+# Model files
+*.joblib
+*.model
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.hdf5
+*.pb
+*.onnx
+*.tflite
+*.mlmodel
+
+# Model artifacts and checkpoints
+models/
+checkpoints/
+saved_models/
+artifacts/
+weights/
+*.weights
+lightning_logs/
+
+# Trained model outputs
+predictions/
+forecasts/
+results/
+outputs/
+
+# ============================================================================
+# JUPYTER & NOTEBOOK SPECIFIC
+# ============================================================================
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Jupyter Lab workspace
+.jupyter/
+.jupyterlab/
+
+# Notebook outputs (uncomment if you want to track notebooks without outputs)
+# *.ipynb
+
+# JupyterLab settings
+.jupyter/lab/
+.jupyter/lab/workspaces/
+
+# ============================================================================
+# EXPERIMENT TRACKING & MLOPS
+# ============================================================================
+
+# MLflow
+mlruns/
+mlartifacts/
+.mlflow/
+
+# Weights & Biases
+wandb/
+
+# TensorBoard logs
+logs/
+tensorboard/
+runs/
+
+# DVC
+.dvc/
+.dvc.lock
+
+# ClearML
+clearml.conf
+
+# Neptune
+.neptune/
+
+# Comet ML
+.comet.config
+
+# Sacred
+sacred_logs/
+
+# ============================================================================
+# CONFIGURATION & SECRETS
+# ============================================================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+config.ini
+secrets.json
+credentials.json
+.secrets/
+
+# API keys and tokens
+*.key
+*.pem
+*.p12
+api_keys.txt
+tokens.txt
+
+# Database configurations
+database.ini
+db_config.json
+
+# ============================================================================
+# CLOUD & DEPLOYMENT
+# ============================================================================
+
+# AWS
+.aws/
+aws-cli/
+
+# Google Cloud
+.gcloud/
+*.json  # Service account keys
+
+# Docker
+.dockerignore
+Dockerfile.local
+docker-compose.override.yml
+
+# Kubernetes
+*.kubeconfig
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# ============================================================================
+# TIME SERIES SPECIFIC
+# ============================================================================
+
+# Time series data exports
+forecasts/
+predictions/
+time_series_data/
+ts_exports/
+
+# Prophet model files
+prophet_models/
+*.prophet
+
+# ARIMA model files
+arima_models/
+*.arima
+
+# Seasonal decomposition results
+seasonal_decomp/
+
+# Cross-validation results
+cv_results/
+backtest_results/
+
+# Feature engineering outputs
+features/
+engineered_features/
+
+# ============================================================================
+# VISUALIZATION & REPORTS
+# ============================================================================
+
+# Generated plots and figures
+figures/
+plots/
+images/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+!docs/images/
+!examples/images/
+
+# Generated reports
+reports/
+*.html
+*.pdf
+
+# Plotly figures
+*.html
+
+# ============================================================================
+# DEVELOPMENT TOOLS
+# ============================================================================
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Editor backups
+*.bak
+*.backup
+*.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ============================================================================
+# PERFORMANCE & PROFILING
+# ============================================================================
+
+# Profiling results
+*.prof
+*.lprof
+profile_output/
+memory_profiler/
+
+# Performance benchmarks
+benchmarks/
+performance_results/
+
+# ============================================================================
+# DOCUMENTATION
+# ============================================================================
+
+# Sphinx build
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Auto-generated documentation
+auto_docs/
+
+# ============================================================================
+# TESTING
+# ============================================================================
+
+# Test outputs
+test_outputs/
+test_results/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+
+# ============================================================================
+# CACHE & TEMPORARY FILES
+# ============================================================================
+
+# General cache
+cache/
+.cache/
+__cache__/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Log files
+*.log
+logs/
+
+# Lock files
+*.lock
+
+# ============================================================================
+# HYPERPARAMETER TUNING
+# ============================================================================
+
+# Optuna
+optuna_studies/
+*.db
+
+# Hyperopt
+hyperopt_trials/
+
+# Ray Tune
+ray_results/
+
+# ============================================================================
+# CUSTOM PROJECT SPECIFIC
+# ============================================================================
+
+# Add your project-specific ignores here
+
+# Sample data (keep tracked)
+!data/sample/sample_retail_data.csv
+!data/sample/README.md
+
+# Configuration templates (keep tracked)
+!config/template_config.yaml
+!config/example_config.ini
+
+# Documentation assets (keep tracked)
+!docs/assets/
+!README_assets/
+
+# Example notebooks (keep tracked)
+!examples/*.ipynb
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# 
+# This .gitignore is designed for:
+# - Python-based time series forecasting projects
+# - Machine learning and data science workflows
+# - JupyterLab development environment
+# - MLOps and experiment tracking
+# - Production deployment
+#
+# Remember to:
+# 1. Keep small sample datasets for testing
+# 2. Track configuration templates
+# 3. Include example notebooks
+# 4. Document your data sources in README files
+# 5. Use DVC or similar for large dataset versioning
+# 
+# ============================================================================
