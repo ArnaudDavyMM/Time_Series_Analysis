@@ -121,6 +121,16 @@ ENV/
 env.bak/
 venv.bak/
 
+# Ignore standard environment files
+env.yml
+environment.yml
+
+# Ignore all files ending with '_env.yml'
+*_env.yml
+
+# Optional: Ignore all .yml files (if you never track them)
+# *.yml
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -202,6 +212,8 @@ outputs/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*
+notebooks/.ipynb_checkpoints/
+
 
 # Jupyter Lab workspace
 .jupyter/
@@ -215,8 +227,13 @@ outputs/
 .jupyter/lab/workspaces/
 
 # Jupyter config and runtime files
-notebooks/etc/
-notebooks/share/
+etc/jupyter/
+share/jupyter/
+../../etc/jupyter/
+../../share/jupyter/
+notebooks/etc/jupyter/
+notebooks/share/jupyter/
+
 
 # ============================================================================
 # EXPERIMENT TRACKING & MLOPS
@@ -495,3 +512,5 @@ ray_results/
 # 
 # ============================================================================
 notebooks_backup/
+etc/
+share/
