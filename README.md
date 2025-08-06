@@ -28,6 +28,7 @@ This stage focuses on understanding the raw dataset and its structure:
   - Quality Checks: Identifying missing values, outliers, and inconsistencies.
 
   - Exploratory Deep Dive: Uncovering trends, seasonality, anomalies, and insights through initial visualizations and descriptive statistics.
+  
 
 🛠️ 2. Feature Engineering & Visualization
 
@@ -38,6 +39,7 @@ Building better predictors and visual context for modeling:
   - Correlation Analysis: Investigating interdependencies between variables.
 
   - Advanced Visualization: Crafting informative plots to showcase patterns and relationships.
+  
 
 📊 3.1 Statistical Modeling
 
@@ -46,6 +48,7 @@ Applying traditional models to understand and predict temporal patterns:
   - Time Series Forecasting: Utilizing models such as ARIMA, SARIMA, and Exponential Smoothing.
 
   - Model Evaluation: Measuring accuracy and performance with appropriate metrics.
+  
   
 🤖 3.2 Machine Learning / Deep Learning Models
 
@@ -62,6 +65,7 @@ Using machine learning regressors for enhanced performance:
     - Multi-head attention + positional encoding
 
     - Hyperparameter optimization via Optuna
+    
 
 🚀 Hybrid Time Series Architecture
 
@@ -123,9 +127,9 @@ Most work was done locally to maintain flexibility and control over system resou
 
 Colab was selectively used to overcome local hardware limitations.
 
-    💡 Only applied to GPU-intensive training task
+  - 💡 Only applied to GPU-intensive training task
 
-    ❌ Not suitable for full development due to limited session duration, unpredictable GPU availability, and memory constraints
+  - ❌ Not suitable for full development due to limited session duration, unpredictable GPU availability, and memory constraints
 --------------------------------------------------------------------------------
 
 📓 Notebooks
@@ -160,10 +164,11 @@ This repository is licensed under the MIT License Feel free to fork, renix, exte
 Special thanks to:
 
     - Anaconda ecosystem
-    
+        
     - PyTorch Forecasting and PyTorch Lightning teams
-    
+        
     - Contributors to TensorFlow, Darts, and tsfresh
+        
     - The open-source time series and machine learning communities
     
 --------------------------------------------------------------------------------
@@ -172,7 +177,7 @@ Special thanks to:
 
 Follow these steps to set up the project on your local machine:
 
-Prerequisites
+- Prerequisites
 
   - Python 3.8+
 
@@ -180,16 +185,18 @@ Prerequisites
 
   - Recommended IDE: VS Code / Jupyter Notebook
   
+  
 🧪 Setup Instructions
 
 Install dependencies and launch locally for full reproducibility.
 
 # Clone the repository
-git clone https://github.com/yourusername/project-name.git  
-cd project-name
+git clone https://github.com/ArnaudDavyMM/Time_Series_Analysis.git  
+cd Time_Series_Amalysis
 
 # Create environment and install dependencies
-python -m venv venv  
+python -m venv venv
+
 source venv/bin/activate   # or venv\Scripts\activate on Windows  
 pip install -r requirements.txt
 --------------------------------------------------------------------------------  
