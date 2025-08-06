@@ -33,6 +33,7 @@ dependencies:
   - statsmodels>=0.13.0
   - pmdarima>=2.0.0   
   - prophet>=1.1.0      # Now available via conda-forge (no pip needed)
+  - holidays>=0.28  # US holidays support
   
   # Visualization (Essential)
   - matplotlib>=3.5.0
@@ -51,6 +52,8 @@ dependencies:
   # Utility Libraries
   - tqdm>=4.64.0
   - pyyaml>=6.0
+  - python-dotenv>=1.0.0  # For environment variables
+  - structlog>=23.1.0  # Advanced logging
   
   # Data Processing
   - openpyxl>=3.0.0
@@ -93,21 +96,19 @@ dependencies:
     # Additional Utilities
     - colorama>=0.4.5
     - rich>=13.7.0  # Fixed: changed from exact pin
+    - python-json-logger>=2.0.7  # JSON formatted logs
 
 # Environment Variables (moved outside dependencies)
 variables:
-  PYTHONPATH: "${CONDA_PREFIX}/lib/python3.11/site-packages"
+  PYTHONPATH: "lib/python3.11/site-packages"
   OMP_NUM_THREADS: "4"
   MKL_NUM_THREADS: "4"
-  
-  # JupyterLab Configuration (Minimal)
-  JUPYTER_CONFIG_DIR: "${CONDA_PREFIX}/etc/jupyter"
-  JUPYTER_DATA_DIR: "${CONDA_PREFIX}/share/jupyter"
-  
-  # MLflow Configuration
+  JUPYTER_CONFIG_DIR: "etc/jupyter"
+  JUPYTER_DATA_DIR: "share/jupyter"
   MLFLOW_TRACKING_URI: "file://./mlruns"
-  
-  # Production Configuration
   PYTHONUNBUFFERED: "1"
   PYTHONIOENCODING: "UTF-8"
-  PYTHONOPTIMIZE: "1"  # Enable optimizations
+  PYTHONOPTIMIZE: "1"                   # Enable optimizations
+  LOG_LEVEL: "INFO"                     # Default logging level
+
+  
