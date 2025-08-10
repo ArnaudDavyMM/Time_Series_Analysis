@@ -1,0 +1,8 @@
+# Standard exclusions
+.DS_Store
+__pycache__/
+*.swp
+
+# Data/code exclusions
+/data/
+/config/

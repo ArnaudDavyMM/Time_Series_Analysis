@@ -1,0 +1,53 @@
+# environment_template.yml
+# Time Series Forecasting Environment Template
+# Users should customize versions and add proprietary packages as needed
+# Last updated : 08-07-2025
+
+name: retail_forecasting
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core Python
+  - python>=3.10
+  
+  # Essential Data Science
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  
+  # Time Series Specific
+  - statsmodels
+  - pmdarima
+  - prophet
+  - sktime
+  
+  # Machine Learning
+  - xgboost
+  - lightgbm
+  
+  # Visualization
+  - matplotlib
+  - plotly
+  - seaborn
+  
+  # Development Environment
+  - jupyter
+  - jupyterlab
+  - ipywidgets
+  
+  # Feature Engineering
+  - featuretools
+  
+  # Utilities
+  - pyyaml
+  - tqdm
+  
+  # Additional packages via pip
+  - pip
+  - pip:
+    - kaleido  # For static plotly exports
+    - darts    # Additional time series library
+    - tsfresh  # Automated feature extraction
