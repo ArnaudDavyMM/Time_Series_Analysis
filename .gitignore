@@ -1,4 +1,7 @@
 # ============================================================================
+# 👋 Welcome Contributor!
+# This .gitignore protects sensitive data and keeps the repo clean.
+# To contribute public notebooks, use the `notebooks/` folder.
 # .gitignore for Hybrid Time Series Forecasting Project
 # Project: Comprehensive Time Series Forecasting Solution
 # Description: Ignore patterns for data science, ML, and time series projects
@@ -8,6 +11,9 @@
 # ============================================================================
 # PYTHON SPECIFIC
 # ============================================================================
+
+# Private work area
+drafts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -85,9 +91,6 @@ docs/_build/
 # PyBuilder
 target/
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
 # IPython
 profile_default/
 ipython_config.py
@@ -102,7 +105,7 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+# PEP 582; used by e.g. github.com/Mukwa-Ndudi/pyflow
 __pypackages__/
 
 # Celery stuff
@@ -118,15 +121,19 @@ celerybeat.pid
 env/
 venv/
 ENV/
+*.key
 env.bak/
 venv.bak/
 
+# ⚠️ MODIFIED: Keep your environment.yml but ignore backups
 # Ignore standard environment files
 env.yml
-environment.yml
 
 # Ignore all files ending with '_env.yml'
 *_env.yml
+
+# ⚠️ SECURITY: Keep environment.yml private (contains versions/sources)
+ts_env.yml  # (*_env.yml)
 
 # Optional: Ignore all .yml files (if you never track them)
 # *.yml
@@ -153,26 +160,36 @@ dmypy.json
 # DATA SCIENCE & MACHINE LEARNING SPECIFIC
 # ============================================================================
 
-# Data files
-*.csv
-*.json
-*.jsonl
-*.parquet
-*.pickle
-*.pkl
+# ⚠️ MODIFIED: More granular data file ignoring
+# Large data files (but allow small samples)
+data/sensitive/
+data/raw/*.csv
+data/raw/*.json
+data/raw/*.parquet
+data/raw/*.xlsx
+data/raw/*.xls
+data/processed/*.csv
+data/processed/*.json
+data/processed/*.parquet
+data/processed/*.pickle
+data/processed/*.pkl
+data/external/*.csv
+data/external/*.json
+
+# Keep sample data and documentation
+!data/raw/sample_*
+!data/processed/sample_*
+!data/*/README.md
+!data/*/.gitkeep
+
+# Other data formats
 *.h5
 *.hdf5
-*.xlsx
-*.xls
 *.tsv
-*.txt
 *.dat
 *.data
 
-# Large datasets (keep small sample data)
-data/raw/
-data/processed/
-data/external/
+# Large datasets directories
 data/interim/
 !data/sample/
 !data/README.md
@@ -183,27 +200,30 @@ data/interim/
 *.pt
 *.pth
 *.ckpt
-*.h5
-*.hdf5
 *.pb
 *.onnx
 *.tflite
 *.mlmodel
 
 # Model artifacts and checkpoints
-models/
-checkpoints/
+outputs/models/*.pkl
+outputs/models/*.joblib
+outputs/models/*.h5
+outputs/models/*.pth
 saved_models/
 artifacts/
 weights/
 *.weights
 lightning_logs/
 
+# Keep model directory structure
+!outputs/models/.gitkeep
+!outputs/models/README.md
+
 # Trained model outputs
 predictions/
 forecasts/
 results/
-outputs/
 
 # ============================================================================
 # JUPYTER & NOTEBOOK SPECIFIC
@@ -212,8 +232,8 @@ outputs/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*
+**/.ipynb_checkpoints/
 notebooks/.ipynb_checkpoints/
-
 
 # Jupyter Lab workspace
 .jupyter/
@@ -226,14 +246,18 @@ notebooks/.ipynb_checkpoints/
 .jupyter/lab/
 .jupyter/lab/workspaces/
 
-# Jupyter config and runtime files
+# ⚠️ MODIFIED: Jupyter config and runtime files (your specific paths)
 etc/jupyter/
 share/jupyter/
-../../etc/jupyter/
-../../share/jupyter/
+**/etc/jupyter/
+**/share/jupyter/
 notebooks/etc/jupyter/
 notebooks/share/jupyter/
 
+# ⚠️ ADDED: Your specific backup directories
+notebooks_backup/
+etc/
+share/
 
 # ============================================================================
 # EXPERIMENT TRACKING & MLOPS
@@ -292,6 +316,11 @@ tokens.txt
 database.ini
 db_config.json
 
+# ⚠️ ADDED: Keep config templates
+!config/template_*.yaml
+!config/example_*.yml
+!config/README.md
+
 # ============================================================================
 # CLOUD & DEPLOYMENT
 # ============================================================================
@@ -302,7 +331,9 @@ aws-cli/
 
 # Google Cloud
 .gcloud/
-*.json  # Service account keys
+# ⚠️ MODIFIED: More specific for service account keys
+*service-account*.json
+*credentials*.json
 
 # Docker
 .dockerignore
@@ -350,23 +381,32 @@ engineered_features/
 # VISUALIZATION & REPORTS
 # ============================================================================
 
-# Generated plots and figures
+# ⚠️ MODIFIED: Generated plots and figures (but keep structure)
+outputs/plots/*.png
+outputs/plots/*.jpg
+outputs/plots/*.jpeg
+outputs/plots/*.gif
+outputs/plots/*.svg
+outputs/plots/*.pdf
 figures/
 plots/
 images/
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.pdf
+
+# Keep plot directory structure and examples
+!outputs/plots/.gitkeep
+!outputs/plots/README.md
 !docs/images/
 !examples/images/
+!assets/images/
 
 # Generated reports
+outputs/reports/*.html
+outputs/reports/*.pdf
 reports/
-*.html
-*.pdf
+
+# Keep report structure
+!outputs/reports/.gitkeep
+!outputs/reports/README.md
 
 # Plotly figures
 *.html
@@ -475,14 +515,13 @@ ray_results/
 # CUSTOM PROJECT SPECIFIC
 # ============================================================================
 
-# Add your project-specific ignores here
-
+# ⚠️ ADDED: Keep important project files
 # Sample data (keep tracked)
 !data/sample/sample_retail_data.csv
 !data/sample/README.md
 
 # Configuration templates (keep tracked)
-!config/template_config.yaml
+!config/template_config.yml
 !config/example_config.ini
 
 # Documentation assets (keep tracked)
@@ -491,6 +530,9 @@ ray_results/
 
 # Example notebooks (keep tracked)
 !examples/*.ipynb
+
+# Keep directory structure files
+!*/.gitkeep
 
 # ============================================================================
 # NOTES
@@ -503,6 +545,13 @@ ray_results/
 # - MLOps and experiment tracking
 # - Production deployment
 #
+# Key modifications for your project:
+# 1. Keep environment.yml tracked (removed from ignore)
+# 2. More granular data file ignoring (allow samples)
+# 3. Keep directory structure with .gitkeep files
+# 4. Added your specific backup directories
+# 5. Preserve config templates and documentation
+# 
 # Remember to:
 # 1. Keep small sample datasets for testing
 # 2. Track configuration templates
@@ -511,6 +560,8 @@ ray_results/
 # 5. Use DVC or similar for large dataset versioning
 # 
 # ============================================================================
-notebooks_backup/
-etc/
-share/
+
+# Private development directories (added by merge.sh)
+src/
+scripts/
+data/
