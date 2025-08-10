@@ -3,6 +3,6 @@
 __pycache__/
 *.swp
 
-# Data/code exclusions
+# Data exclusions
 /data/
 /config/

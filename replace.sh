@@ -1,14 +1,18 @@
 #!/bin/bash
 
-# GitHub Repository Replacement Script (Custom Branch)
+# GitHub Repository Replacement Script with Branch Detection
 set -euo pipefail
 
 # Configuration
 REPO_URL="https://github.com/ArnaudDavyMM/Time_Series_Analysis.git"
-LOCAL_SOURCE="$HOME/Desktop/Time_Series_Analysis/notebooks"  # Your NEW notebooks
-GITHUB_WORKDIR="github_repo_temp"  # Temporary clone
-BRANCH="master"  # Your custom branch name
+LOCAL_SOURCE="$HOME/Desktop/Time_Series_Analysis/notebooks"
+GITHUB_WORKDIR="github_repo_temp"
 CURRENT_DATE=$(date +%Y-%m-%d)
+
+# Detect default branch
+get_default_branch() {
+    git remote show origin | grep "HEAD branch" | awk '{print $3}'
+}
 
 # Versioning
 get_next_version() {
@@ -21,37 +25,38 @@ get_next_version() {
 }
 
 # Colors
-RED='\033[0;31m'; GREEN='\033[0;32m'; NC='\033[0m'
+RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'; NC='\033[0m'
 log() { echo -e "${2:-$NC}$1${NC}"; }
 
 # --- Execution ---
 
-# 1. Clone GitHub repo (specific branch)
-git clone -b "$BRANCH" "$REPO_URL" "$GITHUB_WORKDIR" || {
-    log "❌ Clone failed (does branch '$BRANCH' exist?)" $RED
-    exit 1
-}
+# 1. Clone GitHub repo (detect default branch)
+log "🌐 Cloning repository..." $GREEN
+git clone "$REPO_URL" "$GITHUB_WORKDIR" || { log "❌ Clone failed" $RED; exit 1; }
 cd "$GITHUB_WORKDIR"
+
+BRANCH=$(get_default_branch)
+log "🔍 Detected default branch: $BRANCH" $YELLOW
 
 # 2. Get version and clean repo
 VERSION=$(get_next_version)
-log "🔄 Replacing GitHub repo ($BRANCH branch) with version $VERSION" $GREEN
+log "🔄 Preparing version $VERSION" $GREEN
 
-# 3. WIPE existing content (except .git)
+# 3. Wipe existing content (except .git)
 find . -mindepth 1 ! -name '.git' -delete 2>/dev/null || true
 
-# 4. Copy ONLY public structure
+# 4. Copy new structure
 mkdir -p Time_Series_Analysis/notebooks
 cp -r "$LOCAL_SOURCE/"* Time_Series_Analysis/notebooks/ || {
     log "❌ Failed to copy notebooks" $RED
     exit 1
 }
 
-# 5. Add mandatory files
+# 5. Create essential files
 cat > Time_Series_Analysis/README.md <<EOF
 # Time Series Analysis ($VERSION)
 
-## Public Components
+## Public Structure
 - notebooks/
   - exploratory_analysis/
   - model_evaluation/
@@ -65,21 +70,20 @@ cat > Time_Series_Analysis/.gitignore <<'EOF'
 __pycache__/
 *.swp
 
-# Data/code exclusions
+# Data exclusions
 /data/
 /config/
 EOF
 
-# 6. Commit and FORCE push
+# 6. Commit and push
 git add -A
-if git commit -m "COMPLETE REPLACEMENT: $VERSION"; then
+if git commit -m "Complete replacement: $VERSION"; then
     git tag -a "$VERSION" -m "Version $VERSION"
     git push origin "$BRANCH" --force --tags
-    log "✅ GitHub repo '$BRANCH' branch replaced!" $GREEN
+    log "✅ Successfully pushed to $BRANCH branch" $GREEN
     log "   Version: $VERSION" $GREEN
-    log "   Source: $LOCAL_SOURCE" $GREEN
 else
-    log "⚠️ No changes detected" $GREEN
+    log "⚠️ No changes to commit" $YELLOW
 fi
 
 # 7. Cleanup
