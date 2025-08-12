@@ -1,13 +1,23 @@
-
 # 📊 Model Evaluation
 
-This folder contains notebooks for assessing model performance using quantitative metrics and diagnostic plots.
+Comprehensive model assessment using forecasting metrics and diagnostic analysis.
 
-## 📓 Included Notebooks
-- `metrics_comparison.ipynb` – Evaluates models using RMSE, MAE, MAPE, and other relevant metrics  
-- `confusion_matrix.ipynb` – Visualizes classification performance and error distribution
+## 📚 Notebooks
 
-## 🎯 Objectives
-- Compare models objectively across multiple metrics  
-- Identify strengths, weaknesses, and areas for improvement  
-- Select the best-performing model for production use
+| Notebook | Description | View Options | Last Updated |
+|----------|-------------|--------------|--------------|
+| *No notebooks yet* | | | |
+
+## 🎯 Key Objectives
+
+- Compare models using MAPE, RMSE, and other forecasting metrics
+- Analyze residuals and forecast accuracy patterns
+- Select optimal model for production deployment
+
+## 🔗 Navigation
+
+- [← Back to Main Project](../README.md)
+- [📊 Interactive Results](../docs/) - HTML versions with perfect Plotly rendering
+
+---
+*Generated on 2025-08-11 18:21*

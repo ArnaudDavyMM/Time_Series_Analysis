@@ -10,16 +10,16 @@
 Dataset: Rossmann Store Sales
 
 
-🎯 Project Overview
+🎯 **Project Overview**
 
 This project focuses on analyzing and forecasting retail time series data to uncover patterns, trends, and actionable insights. By combining exploratory analysis, feature engineering, statistical methods, and machine learning, it aims to improve prediction accuracy and support data-driven business decisions. Use Case: Sales forecasting, inventory optimization, and demand planning across retail channels.
 
 Due to computational constraints both on Google Colab (especially GPU limits) and locally CPU, the project is divided into four main parts for performance efficiency:
 
-📂 Sub-Projects Included
---------------------------------------------------------------------------------
+📂 **Sub-Projects Included**
+---
 
-🧭 1. Data Ingestion, Exploratory Data Analysis (EDA)
+🧭 **1. Data Ingestion, Exploratory Data Analysis (EDA)**
 
 This stage focuses on understanding the raw dataset and its structure:
 
@@ -30,7 +30,7 @@ This stage focuses on understanding the raw dataset and its structure:
   - Exploratory Deep Dive: Uncovering trends, seasonality, anomalies, and insights through initial visualizations and descriptive statistics.
   
 
-🛠️ 2. Feature Engineering & Visualization
+🛠️ **2. Feature Engineering & Visualization**
 
 Building better predictors and visual context for modeling:
 
@@ -41,7 +41,7 @@ Building better predictors and visual context for modeling:
   - Advanced Visualization: Crafting informative plots to showcase patterns and relationships.
   
 
-📊 3.1 Statistical Modeling
+📊 **3.1 Statistical Modeling**
 
 Applying traditional models to understand and predict temporal patterns:
 
@@ -50,7 +50,7 @@ Applying traditional models to understand and predict temporal patterns:
   - Model Evaluation: Measuring accuracy and performance with appropriate metrics.
   
   
-🤖 3.2 Machine Learning / Deep Learning Models
+🤖 **3.2 Machine Learning / Deep Learning Models**
 
 This section focuses on widely adopted forecasting techniques in the data science domain. We will implement and evaluate several standard algorithms, including:
 
@@ -63,13 +63,11 @@ This section focuses on widely adopted forecasting techniques in the data scienc
  - Deep Learning Models: LSTM, Temporal Fusion Transformers (TFT), N-BEATS
  
 
-🚀 4. Hybrid Time Series Architecture
+🚀 **4. Hybrid Time Series Architecture**
 
-An evolving framework that integrates multiple state-of-the-art models—such as Prophet, LightGBM, ARIMA, TFT, and LSTM—to effectively capture both linear trends and complex non-linear patterns.
+An evolving framework that integrates multiple state-of-the-art models—such as Prophet, LightGBM, ARIMA, TFT, and LSTM—to effectively capture both linear trends and complex non-linear patterns. These hybrid models handle seasonality, holidays, and external features while maximizing predictive performance through intelligent residual learning.
 
-These hybrids model seasonality, holidays, and external features, while maximizing predictive performance through intelligent residual learning.
-
-Using machine learning and hybrid architectures for enhanced performance:
+**Hybrid combinations for enhanced performance:**
 
  - ARIMA + XGBoost or LightGBM
  
@@ -78,13 +76,14 @@ Using machine learning and hybrid architectures for enhanced performance:
  - Prophet + LSTM
      
  - ARIMA + TFT
---------------------------------------------------------------------------------
+ 
+---
 
-💻 Development Environment
+💻 **Development Environment**
 
 This project is primarily developed and executed locally, with Google Colab used selectively for one sub-project to leverage GPU resources.
 
-🛠️ Tools & Technologies
+🛠️ **Tools & Technologies**
 
 Most work was done locally to maintain flexibility and control over system resources.
 
@@ -99,73 +98,74 @@ Most work was done locally to maintain flexibility and control over system resou
   - Open-source license
 
   - Actively maintained and updated
---------------------------------------------------------------------------------
+  
+---
 
-🚀 Why Use Google Colab?
+🚀 **Why Use Google Colab?**
 
 Colab was selectively used to overcome local hardware limitations.
 
   - 💡 Only applied to GPU-intensive training task
 
   - ❌ Not suitable for full development due to limited session duration, unpredictable GPU availability, and memory constraints
---------------------------------------------------------------------------------
+  
+---
 
-📓 Notebooks
+📓 **Notebooks**
 
    - main_local_notebook.ipynb: Primary development workflow
 
    - colab_training.ipynb: GPU-assisted training workflow (Colab only)
---------------------------------------------------------------------------------
+   
+---
 
-💬 Notes
+💬 **Notes**
 
    - Prefer running locally for speed and reliability
 
    - Colab is only recommended for replicating GPU-bound training step if needed
 
    - Consider switching to other cloud platforms for more robust GPU options
---------------------------------------------------------------------------------
+   
+---
 
-✍️ Author
+✍️ **Author:** [Arnaud Davy M.M](https://www.linkedin.com/in/arnauddavy-mm) | 📬 Connect on LinkedIn | 🛠️ Open to collaboration & time series forecasting ideas! ⭐ Star if helpful!
 
-Arnaud Davy M.M 📬  Connect on Linkedln 🛠️ Open to collaboration, feedback, and future forecasting time series ideas/Innovations!
+---
+📝 **License**
+This repository is licensed under the MIT License. Feel free to fork, remix, extend, contribute, and share — with attribution!
 
-[Arnaud Davy M.M](https://www.linkedin.com/in/arnauddavy-mm) Connect: Linkedln Feel free to reach out if you're experimenting or improving this pipeline! — just leave a star if you find it helpful!
---------------------------------------------------------------------------------
+---
 
-📝 License
-
-This repository is licensed under the MIT License Feel free to fork, renix, extend, contribute and share --with attribution!
---------------------------------------------------------------------------------
-
-🙏 Acknowledgments
+🙏 **Acknowledgments**
 
 Special thanks to:
 
-  - Anaconda ecosystem
+ - Anaconda ecosystem
             
-  - PyTorch Forecasting and PyTorch Lightning teams
+ - PyTorch Forecasting and PyTorch Lightning teams
             
-  - Contributors to TensorFlow, Darts, and tsfresh
+ - Contributors to TensorFlow, Darts, and tsfresh
             
-  - The open-source time series and machine learning communities
+ - The open-source time series and machine learning communities
     
---------------------------------------------------------------------------------
+---
 
-🚀 Getting Started
+🚀 **Getting Started**
 
 Follow these steps to set up the project on your local machine:
 
 - Prerequisites
 
-  - Python 3.8+
+  - Python 3.11
 
   - pip, conda, or preferred package manager
 
   - Recommended IDE: VS Code / PyCharm / Jupyter Notebook
---------------------------------------------------------------------------------  
+
+---  
   
-🧪 Setup Instructions
+🧪 **Setup Instructions**
 
 Install dependencies and launch locally for full reproducibility.
 
@@ -180,6 +180,7 @@ source venv/bin/activate
 or venv\Scripts\activate on Windows
   
 pip install -r requirements.txt
---------------------------------------------------------------------------------  
+
+---  
     
     
