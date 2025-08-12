@@ -11,6 +11,11 @@ NOTEBOOKS_DIR="notebooks"
 DOCS_DIR="docs"
 README_GENERATOR="generate_readme.py"
 
+# Load environment variables if .env file exists
+if [ -f ".env" ]; then
+    export $(grep -v '^#' .env | xargs)
+fi
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -383,6 +388,41 @@ update_readme_for_category() {
     fi
 }
 
+# Function to setup or verify git remote
+setup_git_remote() {
+    local remote_name="origin"
+    
+    # Check if remote already exists
+    if git remote get-url "$remote_name" &>/dev/null; then
+        print_status "✅ Git remote '$remote_name' already configured"
+        return 0
+    fi
+    
+    # Try to configure remote using environment variables
+    if [ -n "$REPO_URL" ]; then
+        print_status "🔧 Configuring git remote using environment variables..."
+        
+        # Use token authentication if available
+        if [ -n "$GITHUB_TOKEN" ] && [ -n "$GITHUB_USERNAME" ]; then
+            local auth_url="https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/${GITHUB_USERNAME}/${REPO_NAME}.git"
+            if git remote add "$remote_name" "$auth_url" 2>/dev/null; then
+                print_status "✅ Git remote configured with token authentication"
+                return 0
+            fi
+        fi
+        
+        # Fallback to regular URL
+        if git remote add "$remote_name" "$REPO_URL" 2>/dev/null; then
+            print_status "✅ Git remote configured: $REPO_URL"
+            return 0
+        fi
+    fi
+    
+    print_error "Failed to configure git remote"
+    print_status "Please run: git remote add origin $REPO_URL"
+    return 1
+}
+
 # Function to commit a specific category
 commit_category() {
     local category="$1"
@@ -394,6 +434,12 @@ commit_category() {
     if ! git rev-parse --git-dir > /dev/null 2>&1; then
         print_warning "Not in a git repository, skipping git operations"
         return 0
+    fi
+    
+    # Setup git remote if needed
+    if ! setup_git_remote; then
+        print_warning "Git remote not configured properly"
+        print_status "Continuing with commit only (no push)"
     fi
     
     # Add all changes
@@ -494,14 +540,40 @@ Files published:"
             print_warning "Failed to create tag, but commit was successful"
         fi
         
-        # Push to remote with tags
+        # Try to push to remote with better error handling
         print_status "🚀 Pushing to GitHub..."
-        if git push && git push --tags; then
-            print_success "🎉 Version $version pushed successfully to GitHub!"
+        
+        # Check if we have a remote configured
+        if git remote get-url origin &>/dev/null; then
+            # Try pushing with different strategies
+            if git push origin HEAD 2>/dev/null && git push --tags 2>/dev/null; then
+                print_success "🎉 Version $version pushed successfully to GitHub!"
+            elif git push origin HEAD 2>/dev/null; then
+                print_status "✅ Code pushed successfully"
+                if git push --tags 2>/dev/null; then
+                    print_status "✅ Tags pushed successfully"
+                    print_success "🎉 Version $version is now live on GitHub!"
+                else
+                    print_warning "Failed to push tags. Run manually: git push --tags"
+                fi
+            else
+                # Check if it's an authentication issue
+                print_warning "Push failed. This might be an authentication issue."
+                echo ""
+                echo -e "${YELLOW}Troubleshooting steps:${NC}"
+                echo "1. Check GitHub token permissions in your .env file"
+                echo "2. Or setup SSH authentication: https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
+                echo "3. Or run manually: git push origin HEAD && git push --tags"
+                echo ""
+                echo -e "${BLUE}Current remote URL:${NC} $(git remote get-url origin 2>/dev/null || echo 'Not configured')"
+            fi
         else
-            print_error "Failed to push to GitHub"
-            print_status "Manual push needed: git push && git push --tags"
-            return 1
+            print_error "No git remote configured"
+            echo ""
+            echo -e "${YELLOW}To fix this issue:${NC}"
+            echo "1. Add remote: git remote add origin $REPO_URL"
+            echo "2. Or check your .env file has correct REPO_URL"
+            echo "3. Then push manually: git push -u origin HEAD && git push --tags"
         fi
     else
         print_error "Failed to commit changes"
