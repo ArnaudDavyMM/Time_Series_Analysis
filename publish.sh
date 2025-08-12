@@ -45,6 +45,23 @@ print_success() {
     echo -e "${PURPLE}✨ $1${NC}"
 }
 
+# Function to clean up Jupyter checkpoint files
+cleanup_jupyter_checkpoints() {
+    print_status "🧹 Cleaning up Jupyter checkpoint files..."
+    
+    # Remove .ipynb_checkpoints directories from notebooks directory
+    find "$NOTEBOOKS_DIR" -name ".ipynb_checkpoints" -type d -exec rm -rf {} + 2>/dev/null || true
+    
+    # Remove any .ipynb_checkpoints from docs directory  
+    find "$DOCS_DIR" -name ".ipynb_checkpoints" -type d -exec rm -rf {} + 2>/dev/null || true
+    
+    # Remove any hidden temp files
+    find "$NOTEBOOKS_DIR" -name ".*" -type f -not -name ".gitkeep" -delete 2>/dev/null || true
+    find "$DOCS_DIR" -name ".*" -type f -not -name ".gitkeep" -delete 2>/dev/null || true
+    
+    print_status "✅ Cleanup completed"
+}
+
 # Function to detect category from file path
 detect_category() {
     local filepath="$1"
@@ -72,25 +89,35 @@ find_publishable_files_by_category() {
     
     declare -A category_files
     
-    # Find all .ipynb files in drafts
+    # Find all .ipynb files in drafts (excluding checkpoints)
     while IFS= read -r -d '' file; do
+        # Skip Jupyter checkpoint files
+        if [[ "$file" == *".ipynb_checkpoints"* ]]; then
+            continue
+        fi
+        
         local category=$(detect_category "$file")
         if [[ -z "${category_files[$category]}" ]]; then
             category_files[$category]="$file"
         else
             category_files[$category]="${category_files[$category]}|$file"
         fi
-    done < <(find "$DRAFTS_DIR" -name "*.ipynb" -print0 2>/dev/null || true)
+    done < <(find "$DRAFTS_DIR" -name "*.ipynb" -not -path "*/.ipynb_checkpoints/*" -print0 2>/dev/null || true)
     
-    # Find all .html and .svg files in drafts (visualizations)
+    # Find all .html and .svg files in drafts (visualizations, excluding checkpoints)
     while IFS= read -r -d '' file; do
+        # Skip Jupyter checkpoint files and hidden files
+        if [[ "$file" == *".ipynb_checkpoints"* ]] || [[ "$(basename "$file")" == .* ]]; then
+            continue
+        fi
+        
         local category=$(detect_category "$file")
         if [[ -z "${category_files[$category]}" ]]; then
             category_files[$category]="$file"
         else
             category_files[$category]="${category_files[$category]}|$file"
         fi
-    done < <(find "$DRAFTS_DIR" -name "*.html" -o -name "*.svg" -print0 2>/dev/null || true)
+    done < <(find "$DRAFTS_DIR" -name "*.html" -o -name "*.svg" -not -path "*/.ipynb_checkpoints/*" -print0 2>/dev/null || true)
     
     # Output category groups
     for category in "${!category_files[@]}"; do
@@ -321,6 +348,12 @@ publish_category() {
         local basename=$(basename "$source_file")
         local extension="${basename##*.}"
         
+        # Skip if it's a checkpoint file (extra safety)
+        if [[ "$basename" == *".ipynb_checkpoints"* ]] || [[ "$basename" == .* ]]; then
+            print_warning "Skipping system file: $basename"
+            continue
+        fi
+        
         print_status "📝 Processing: $basename"
         
         case "$extension" in
@@ -360,6 +393,9 @@ publish_category() {
                 ;;
         esac
     done
+    
+    # Clean up any checkpoint files that might have been created
+    cleanup_jupyter_checkpoints
     
     # Update README for this category
     update_readme_for_category "$category"
