@@ -169,11 +169,12 @@ Follow these steps to set up the project on your local machine:
 
 Install dependencies and launch locally for full reproducibility.
 
-# Clone the repository
+**Clone the repository**
+
 git clone https://github.com/ArnaudDavyMM/Time_Series_Analysis.git  
 cd Time_Series_Amalysis
 
-# Create environment and install dependencies
+**Create environment and install dependencies**
 python -m venv venv
 
 source venv/bin/activate
