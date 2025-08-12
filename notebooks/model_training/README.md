@@ -1,12 +1,23 @@
 # 🛠️ Model Training
 
-This folder includes notebooks for building and refining forecasting models using both statistical and machine learning techniques.
+Building and refining time series forecasting models using statistical and ML techniques.
 
-## 📓 Included Notebooks
-- `baseline_model.ipynb` – Establishes a benchmark using simple models  
-- `fine_tuning.ipynb` – Applies hyperparameter optimization and advanced training strategies
+## 📚 Notebooks
 
-## 🎯 Objectives
-- Train models using engineered features  
-- Compare performance across different algorithms  
-- Save trained models for evaluation and deployment
+| Notebook | Description | View Options | Last Updated |
+|----------|-------------|--------------|--------------|
+| *No notebooks yet* | | | |
+
+## 🎯 Key Objectives
+
+- Train Prophet and other forecasting models
+- Optimize hyperparameters for best performance
+- Implement cross-validation for time series data
+
+## 🔗 Navigation
+
+- [← Back to Main Project](../README.md)
+- [📊 Interactive Results](../docs/) - HTML versions with perfect Plotly rendering
+
+---
+*Generated on 2025-08-11 18:21*

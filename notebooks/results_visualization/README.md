@@ -1,14 +1,23 @@
-# 📈 Results & Visualization
+# 📈 Results Visualization
 
-This folder includes notebooks for presenting model outputs and insights through visual storytelling.
+Interactive visualizations and dashboards for model results and business insights.
 
-## 📓 Included Notebooks
-- `viz_trend_analysis.ipynb` – Highlights temporal patterns, seasonality, and long-term trends in the sales data
-- 'viz_advance_analysis.ipynb` – Explores complex relationships and patterns using advanced visualization techniques
-- `performance_plots.ipynb` – Displays training curves, forecast accuracy, and residuals  
-- `dashboard.ipynb` – Builds interactive or static dashboards for stakeholders
+## 📚 Notebooks
 
-## 🎯 Objectives
-- Communicate results effectively to non-technical audiences  
-- Support business decisions with visual evidence  
-- Prepare materials for reporting and presentations
+| Notebook | Description | View Options | Last Updated |
+|----------|-------------|--------------|--------------|
+| **Part 2.3: Data Visualization and Impact Analysis** | Modular Functions for Impact Analysis & Visualization | [📓 Code](notebooks/results_visualization/viz_impact_analysis.ipynb) • [🌐 HTML](docs/viz_impact_analysis.html) 📊 | 2025-08-11 |
+
+## 🎯 Key Objectives
+
+- Create interactive Plotly dashboards for stakeholders
+- Visualize forecast results and confidence intervals
+- Generate business-ready reports and presentations
+
+## 🔗 Navigation
+
+- [← Back to Main Project](../README.md)
+- [📊 Interactive Results](../docs/) - HTML versions with perfect Plotly rendering
+
+---
+*Generated on 2025-08-11 18:21*

@@ -9,6 +9,26 @@
 # ============================================================================
 
 # ============================================================================
+# SHELL SCRIPTS
+# ============================================================================
+
+# Ignore shell script backups and temp files
+*.sh
+*.sh.bak
+*.sh.backup
+*.sh.tmp
+
+# Ignore backups in scripts folder
+scripts/*.sh
+scripts/*.sh.bak
+scripts/*.sh.backup
+
+# Keep main scripts
+!scripts/merge.sh
+!scripts/setup_env.sh
+!scripts/publish.sh.backup
+
+# ============================================================================
 # PYTHON SPECIFIC
 # ============================================================================
 
@@ -395,14 +415,16 @@ images/
 # Keep plot directory structure and examples
 !outputs/plots/.gitkeep
 !outputs/plots/README.md
+!docs/*.html
+!docs/*.svg
 !docs/images/
 !examples/images/
 !assets/images/
 
-# Generated reports
-outputs/reports/*.html
-outputs/reports/*.pdf
-reports/
+# ⚠️ Generated reports
+!outputs/reports/*.html
+!outputs/reports/*.pdf
+!reports/
 
 # Keep report structure
 !outputs/reports/.gitkeep
