@@ -1,0 +1,44 @@
+views:
+  executive:
+    title: "🏢 Executive Summary"
+    content: |
+      This dashboard helps you understand how different stores are performing and when sales are strongest.
+      It shows which stores sell the most, which days are busiest, and how weekends compare to weekdays.
+      You can also see how sales change over time—by quarter and by year—to spot patterns and plan ahead.
+      Special events like promotions and holidays are highlighted so you can see their impact on sales.
+      Everything is designed to be easy to explore, so you can make better decisions—without needing to be a data expert.
+
+  technical:
+    title: "🧠 Technical Overview"
+    content: |
+      This modular dashboard delivers a reproducible, config-driven analysis of retail sales data, filtered to exclude zero-sales entries.
+      It integrates feature-engineered metrics like rolling averages, EMA trends, and promo/holiday flags to surface temporal dynamics.
+      Visualizations include store rankings, weekday/weekend splits, and high-impact dates, supporting model validation and business impact analysis.
+
+sections:
+  - id: store_performance
+    title: "🏬 Store Rankings & Performance"
+    description: "Shows which stores sell the most overall."
+    chart: "store_rank_chart"
+
+  - id: weekday_weekend
+    title: "📅 Weekday vs Weekend Sales"
+    description: "Compare sales between weekdays and weekends."
+    chart: "weekday_weekend_chart"
+
+  - id: time_trends
+    title: "📈 Quarterly & Yearly Trends"
+    description: "Track how sales change over time to spot seasonal patterns."
+    chart: "time_trend_chart"
+
+  - id: promo_impact
+    title: "🎉 Promotions & Holidays Impact"
+    description: "See how promotions and holidays affect sales."
+    chart: "promo_impact_chart"
+
+  - id: top_days
+    title: "🔥 Top Selling Days"
+    description: "Highlights the most impactful selling days."
+    chart: "top_days_chart"
+
+

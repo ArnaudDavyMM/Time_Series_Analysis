@@ -5,6 +5,15 @@
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
 
+## 🚀 **Launch Notebooks**
+
+- [Data Ingestion](https://mybinder.org/v2/gh/ArnaudDavyMM/Time_Series_Analysis/HEAD?filepath=data_ingestion_ead.ipynb)
+- [Feature Engineering](https://mybinder.org/v2/gh/ArnaudDavyMM/Time_Series_Analysis/HEAD?filepath=feature_engineering.ipynb)
+- [Trends Impact Analysis](https://mybinder.org/v2/gh/ArnaudDavyMM/Time_Series_Analysis/HEAD?filepath=trends_impact_analysis.ipynb)
+- [Visualization Impact Analysis](https://mybinder.org/v2/gh/ArnaudDavyMM/Time_Series_Analysis/HEAD?filepath=viz_impact_analysis.ipynb)
+- [Advanced Plotly Visualizations](https://mybinder.org/v2/gh/ArnaudDavyMM/Time_Series_Analysis/HEAD?filepath=viz_advanced_plotly.ipynb)
+
+
 📈 Time Series Forecasting for Retail Sales
 
 Dataset: Rossmann Store Sales

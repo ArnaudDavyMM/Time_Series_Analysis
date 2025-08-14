@@ -431,7 +431,7 @@ images/
 !outputs/reports/README.md
 
 # Plotly figures
-*.html
+!*.html
 
 # ============================================================================
 # DEVELOPMENT TOOLS
