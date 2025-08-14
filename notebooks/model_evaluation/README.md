@@ -20,4 +20,4 @@ Comprehensive model assessment using forecasting metrics and diagnostic analysis
 - [📊 Interactive Results](../docs/) - HTML versions with perfect Plotly rendering
 
 ---
-*Generated on 2025-08-13 21:48*
+*Generated on 2025-08-13 22:36*

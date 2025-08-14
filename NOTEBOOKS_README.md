@@ -17,6 +17,8 @@ Auto-generated overview of all analysis notebooks in this project.
 ### 📊 Model Evaluation
 
 ### 📈 Results Visualization
+- [📊 Part 2: Advanced Data Visualization](docs/viz_advanced_plotly.html)
+- [📊 Part 2.3: Data Visualization and Impact Analysis](docs/viz_impact_analysis.html)
 
 ## 👨‍💻 Technical Notebooks
 
@@ -35,4 +37,4 @@ Comprehensive model assessment using forecasting metrics and diagnostic analysis
 Interactive visualizations and dashboards for model results and business insights.
 
 ---
-*Auto-generated on 2025-08-13 21:48 | Run `python generate_readme.py` to update*
+*Auto-generated on 2025-08-13 22:37 | Run `python generate_readme.py` to update*
