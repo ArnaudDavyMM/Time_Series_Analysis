@@ -1,32 +1,481 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Data Science Projects</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Portfolio | Interactive Jupyter Notebooks</title>
+    <meta name="description" content="Professional data science portfolio featuring interactive Jupyter notebooks with real-time visualizations, machine learning projects, and statistical analysis.">
+    
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        .project { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .project h3 { margin-top: 0; color: #2c3e50; }
-        .project a { color: #3498db; text-decoration: none; }
-        .project a:hover { text-decoration: underline; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .header .description {
+            font-size: 1.1em;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: justify;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .projects {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background: #f0f0f0;
+            color: #666;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #764ba2, #667eea);
+            margin-left: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #667eea;
+            font-size: 1.5em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #764ba2;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .header .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .tech-stack {
+                justify-content: center;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .highlight-box p {
+            margin-bottom: 15px;
+        }
+
+        .notebook-preview {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            border-left: 4px solid #667eea;
+        }
     </style>
 </head>
 <body>
-    <h1>🔬 My Data Science Portfolio</h1>
-    <p>Welcome to my data science projects with interactive visualizations!</p>
-    
-    <div class="project">
-        <h3>📊 Exploratory Data Analysis</h3>
-        <p>Interactive data exploration with Plotly charts</p>
-        <a href="analysis1.html">View Analysis →</a>
+    <div class="container">
+        <header class="header">
+            <h1>Data Science Portfolio</h1>
+            <p class="subtitle">Interactive Jupyter Notebooks & Advanced Analytics</p>
+            <p class="description">
+                Welcome to my data science portfolio featuring interactive Jupyter notebooks with live visualizations, 
+                real-time data processing, and comprehensive analytical insights. Each project demonstrates practical 
+                applications of machine learning, statistical analysis, and data visualization techniques.
+            </p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Jupyter</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Seaborn</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">Plotly</span>
+            </div>
+        </header>
+
+        <section class="features">
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Interactive Visualizations</h3>
+                <p>Dynamic charts and plots that respond to user input, revealing insights through interactive exploration of complex datasets.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🤖</span>
+                <h3>Machine Learning Models</h3>
+                <p>End-to-end ML pipelines with model training, evaluation, and deployment demonstrations using industry-standard practices.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <h3>Statistical Analysis</h3>
+                <p>Comprehensive statistical investigations with hypothesis testing, correlation analysis, and predictive modeling.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🔍</span>
+                <h3>Data Exploration</h3>
+                <p>Thorough exploratory data analysis with data cleaning, feature engineering, and insight discovery processes.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Responsive Design</h3>
+                <p>All notebooks are optimized for viewing on any device, with mobile-friendly layouts and accessible navigation.</p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Real-time Processing</h3>
+                <p>Live data processing capabilities with streaming analytics and real-time visualization updates.</p>
+            </div>
+        </section>
+
+        <div class="highlight-box">
+            <h3>🚀 Why Interactive Notebooks?</h3>
+            <p style="text-align: justify;">Unlike static repositories, these notebooks contain <strong>fully interactive charts and visualizations</strong> that you can explore, zoom, filter, and analyze. Each project demonstrates different aspects of the data science pipeline from exploratory analysis to model deployment.</p>
+            <div class="notebook-preview">
+                • Modify parameters and see results instantly<br>
+                • Explore different data subsets interactively<br>
+                • Run code cells to understand the analysis process<br>
+                • Visualize data from multiple perspectives
+            </div>
+        </div>
+
+        <section class="projects">
+            <h2>Featured Projects</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">
+                Click on any project below to explore the interactive notebook and dive deep into the analysis
+            </p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>📊 Sales Data Analysis</h3>
+                    <p>Comprehensive analysis of sales performance with interactive dashboards, trend analysis, and predictive modeling for revenue forecasting.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">Plotly</span>
+                        <span class="project-tag">Time Series</span>
+                        <span class="project-tag">Forecasting</span>
+                    </div>
+                    <a href="sales_analysis.html" class="btn">View Notebook</a>
+                    <a href="https://github.com/yourusername/yourrepo" class="btn btn-secondary">Source Code</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>🤖 Customer Segmentation</h3>
+                    <p>Machine learning approach to customer segmentation using clustering algorithms, feature analysis, and behavioral pattern recognition.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Scikit-learn</span>
+                        <span class="project-tag">Clustering</span>
+                        <span class="project-tag">PCA</span>
+                        <span class="project-tag">Seaborn</span>
+                    </div>
+                    <a href="customer_segmentation.html" class="btn">View Notebook</a>
+                    <a href="https://github.com/yourusername/yourrepo" class="btn btn-secondary">Source Code</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>📈 Financial Market Analysis</h3>
+                    <p>Real-time stock market data analysis with technical indicators, risk assessment, and portfolio optimization strategies.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">yfinance</span>
+                        <span class="project-tag">Technical Analysis</span>
+                        <span class="project-tag">Risk Metrics</span>
+                        <span class="project-tag">Matplotlib</span>
+                    </div>
+                    <a href="financial_analysis.html" class="btn">View Notebook</a>
+                    <a href="https://github.com/yourusername/yourrepo" class="btn btn-secondary">Source Code</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>🔍 Text Analytics</h3>
+                    <p>Natural language processing project featuring sentiment analysis, topic modeling, and text classification with interactive visualizations.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">NLTK</span>
+                        <span class="project-tag">TextBlob</span>
+                        <span class="project-tag">WordCloud</span>
+                        <span class="project-tag">NLP</span>
+                    </div>
+                    <a href="text_analytics.html" class="btn">View Notebook</a>
+                    <a href="https://github.com/yourusername/yourrepo" class="btn btn-secondary">Source Code</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>🌐 Web Scraping & API</h3>
+                    <p>Automated data collection from web sources and APIs with data cleaning, transformation, and real-time monitoring dashboards.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">BeautifulSoup</span>
+                        <span class="project-tag">Requests</span>
+                        <span class="project-tag">APIs</span>
+                        <span class="project-tag">Automation</span>
+                    </div>
+                    <a href="web_scraping.html" class="btn">View Notebook</a>
+                    <a href="https://github.com/yourusername/yourrepo" class="btn btn-secondary">Source Code</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>🎯 A/B Testing Framework</h3>
+                    <p>Statistical framework for A/B testing with power analysis, hypothesis testing, and business impact measurement tools.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">SciPy</span>
+                        <span class="project-tag">Statistics</span>
+                        <span class="project-tag">Hypothesis Testing</span>
+                        <span class="project-tag">Business Analytics</span>
+                    </div>
+                    <a href="ab_testing.html" class="btn">View Notebook</a>
+                    <a href="https://github.com/yourusername/yourrepo" class="btn btn-secondary">Source Code</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="highlight-box">
+            <h3>🎯 Perfect for Employers & Collaborators</h3>
+            <p>These interactive notebooks demonstrate not just coding skills, but also:</p>
+            <div class="notebook-preview">
+                ✅ Problem-solving methodology and analytical thinking<br>
+                ✅ Clear documentation and reproducible research<br>
+                ✅ Data storytelling and visualization best practices<br>
+                ✅ Industry-standard tools and professional workflows
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>
+                📧 Ready to discuss data science opportunities? Let's connect and explore how these analytical approaches 
+                can drive business insights and decision-making.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" title="GitHub">📂</a>
+                <a href="https://linkedin.com/in/yourusername" title="LinkedIn">💼</a>
+                <a href="mailto:your.email@example.com" title="Email">📧</a>
+                <a href="https://twitter.com/yourusername" title="Twitter">🐦</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
+                Built with ❤️ using Jupyter, Python, and modern web technologies
+            </p>
+        </footer>
     </div>
-    
-    <div class="project">
-        <h3>🤖 Model Training Results</h3>
-        <p>Machine learning model performance and metrics</p>
-        <a href="model_results.html">View Results →</a>
-    </div>
-    
-    <!-- Add more projects as you create them -->
 </body>
 </html>
