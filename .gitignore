@@ -13,6 +13,9 @@
 # ============================================================================
 
 # Ignore / exclude all Untitled.ipynb under any subdirectory of drafts
+
+/**/Untitled*.html
+docs/Untitled*.html
 drafts/**/Untitled*.ipynb
 
 # Ignore shell script backups and temp files

@@ -23,6 +23,12 @@ Auto-generated overview of all analysis notebooks in this project.
 ### 📊 Model Evaluation
 
 ### 📈 Results Visualization
+- [📊 Impact Analysis for Rossmann Store Sales](docs/01_viz_trends_impact_analysis.html)
+- [📊 Visualitions - Sales Impact Analysis](docs/02_viz_trends_impact_analysis.html)
+- [📊 🧩 Visualization - Reusable Functions for Impact Analysis Part I](docs/03_viz_impact_analysis.html)
+- [📊 🧩 Visualization - Modular Functions for Impact Analysis Part II](docs/04_viz_impact_analysis.html)
+- [📊 📈 Advanced Data Visualization](docs/05_viz_correlation_analysis.html)
+- [📊 📈  Advanced Data Visualization](docs/06_viz_advanced_plotly.html)
 - [📊 Part 2: Advanced Data Visualization](docs/viz_advanced_plotly.html)
 - [📊 Part 2.3: Data Visualization and Impact Analysis](docs/viz_impact_analysis.html)
 
@@ -43,4 +49,4 @@ Comprehensive model assessment using forecasting metrics and diagnostic analysis
 Interactive visualizations and dashboards for model results and business insights.
 
 ---
-*Auto-generated on 2025-08-21 21:48 | Run `python generate_readme.py` to update*
+*Auto-generated on 2025-08-21 22:13 | Run `python generate_readme.py` to update*
