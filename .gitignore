@@ -25,15 +25,13 @@ drafts/**/Untitled*.ipynb
 *.sh.tmp
 
 # Ignore backups in scripts folder
+scripts/
 scripts/*.sh
 scripts/*.sh.bak
 scripts/*.sh.backup
 
 # Keep main scripts & configs
-configs
-scripts
 configs/
-scripts/
 !scripts/merge.sh
 !scripts/setup_env.sh
 !scripts/publish.sh.backup
