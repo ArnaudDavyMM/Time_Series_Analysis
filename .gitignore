@@ -12,6 +12,9 @@
 # SHELL SCRIPTS
 # ============================================================================
 
+# Ignore / exclude all Untitled.ipynb under any subdirectory of drafts
+drafts/**/Untitled*.ipynb
+
 # Ignore shell script backups and temp files
 *.sh
 *.sh.bak
@@ -31,6 +34,8 @@ scripts/*.sh.backup
 # ============================================================================
 # PYTHON SPECIFIC
 # ============================================================================
+
+drafs/exploratory_analysis/Untitled.ipynb
 
 # Private work area
 drafts/
