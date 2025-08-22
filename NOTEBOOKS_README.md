@@ -7,6 +7,12 @@ Auto-generated overview of all analysis notebooks in this project.
 *Perfect for presentations and stakeholders - all plots are interactive:*
 
 ### 🧭 Exploratory Analysis
+- [📊 🧭 Data Ingestion and Exploratory Data Analysis (EDA)](docs/01_data_ingestion_eda.html)
+- [📊 🧪 Exploratory Data Analysis (EDA)](docs/01_feat_engineering_eda.html)
+- [📊 🛠️ Feature Engineering Overview – Rossmann Store Sales](docs/01_feature_engineering.html)
+- [📊 💡 Sales Performance Analysis](docs/01_store_perf_analysis.html)
+- [📊 💡 Customer Performance Analysis](docs/02_store_perf_analysis.html)
+- [📊 Untitled](docs/Untitled.html)
 - [📊 Part 1: Data Ingestion and Exploratory Data Analysis (EDA)](docs/data_ingestion_eda.html)
 - [📊 Project Overview](docs/eda_feat_engineering.html)
 - [📊 🛠️ Feature Engineering Overview – Rossmann Store Sales](docs/feature_engineering.html)
@@ -37,4 +43,4 @@ Comprehensive model assessment using forecasting metrics and diagnostic analysis
 Interactive visualizations and dashboards for model results and business insights.
 
 ---
-*Auto-generated on 2025-08-13 22:37 | Run `python generate_readme.py` to update*
+*Auto-generated on 2025-08-21 21:10 | Run `python generate_readme.py` to update*
